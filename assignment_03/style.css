@@ -451,3 +451,43 @@ footer p{
     min-width: 300px;
     max-width: 440px;
 }
+
+@media only screen and (min-width: 768px){
+    nav {
+        flex-direction: row;
+    }
+    .wrapper-stats {
+        width: 60%;
+        margin-inline: auto;
+    }
+    .container {
+        margin-block: 25px;
+        
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+        gap: 15px;
+    }
+    #logo-img-show {
+        height: 80px;
+        width: auto;
+    }
+    .wrapper-team {
+        width: 40%;
+        height: 460px;
+        margin-block-end: 6px;
+        margin-inline: auto;
+        align-items: flex-start; 
+    }
+    .team-img {
+        width: 25%;
+        height: auto;
+        max-height: 460px;
+        border-radius: 0 40px 40px 0;
+        position: absolute;
+    }
+
+    input, textarea {
+        width: 50%;
+    }
+
+}
