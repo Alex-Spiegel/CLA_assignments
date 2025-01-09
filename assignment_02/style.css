@@ -1,0 +1,493 @@
+@font-face {
+    font-family: 'Martel Sans';
+    src: url(./assets/fonts/martelsans-ultralight.otf) format('opentype');
+    font-weight: 100;
+    font-style: normal;  
+}
+
+@font-face {
+    font-family: 'Martel Sans';
+    src: url(./assets/fonts/martelsans-light.otf) format('opentype');
+    font-weight: 200;
+    font-style: normal;  
+}
+
+@font-face {
+    font-family: 'Martel Sans';
+    src: url(./assets/fonts/martelsans-regular.otf) format('opentype');
+    font-weight: 300;
+    font-style: normal;  
+}
+
+@font-face {
+    font-family: 'Martel Sans';
+    src: url(./assets/fonts/martelsans-demibold.otf) format('opentype');
+    font-weight: 400;
+    font-style: normal;  
+}
+
+@font-face {
+    font-family: 'Martel Sans';
+    src: url(./assets/fonts/martelsans-bold.otf) format('opentype');
+    font-weight: 500;
+    font-style: normal;  
+}
+
+@font-face {
+    font-family: 'Martel Sans';
+    src: url(./assets/fonts/martelsans-extrabold.otf) format('opentype');
+    font-weight: 600;
+    font-style: normal;  
+}
+
+@font-face {
+    font-family: 'Martel Sans';
+    src: url(./assets/fonts/martelsans-heavy.otf) format('opentype');
+    font-weight: 700;
+    font-style: normal;  
+}
+/* I really hope that I implemented the downloaded odt-files correctly.
+My thinking was, that each file represents a certain font-weight.*/
+
+:root {
+    --primary: #8053FF;
+    --body-main: #23155B;
+    --text-light: #817d8e;
+    --white: #FDFDFD;
+    --background: #f4f4f4;
+
+    --font-main: Martel Sans, sans-serif;
+    --font-alt: Noto Sans Khojki;
+/* alternative font is not definied, since I couldn't find it anywhere */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-main), sans-serif, var(--font-alt);
+}
+
+body {
+    background-color: var(--background);
+}
+
+nav {
+    height: 40px;
+    width: auto;
+    font-size: 12px;
+    margin-inline: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav :first-child{
+    display: flex;
+    align-items: center;
+}
+
+nav :last-child{
+    display: flex;
+    align-items: center;
+}
+
+#logo-img-nav {
+    height: 30px;
+    width: auto;
+}
+
+nav a {
+    margin-right: 10px;
+}
+
+a:link {
+    color: black;
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--primary);
+    text-decoration-line: underline;
+}
+
+a:active {
+    color: var(--body-main);
+}
+
+button {
+    padding-block: 5px;
+    padding-inline: 14px;
+    border: 1px solid var(--primary);
+    border-radius: 6px;
+    color: var(--white);
+    font-size: 12px;
+    background-color: var(--primary);
+}
+
+button:hover {
+    color: var(--primary);
+    background-color: var(--background);
+}
+
+.hero {
+    margin-block: 80px;
+    margin-inline: auto;
+    padding-inline: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 30px;
+}
+
+.hero p {
+    font-size: 12px;
+}
+.hero div {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.btn-manager {
+    color: var(--primary);
+    font-size: 12px;
+    background-color:  var(--background);
+}
+
+.btn-manager:hover {
+    color: var(--white);
+    background-color: var(--primary);
+}
+
+h3 {
+font-size: 22px;
+color: var(--primary);
+}
+
+.statistics {
+    margin-block: 80px;
+    padding-inline: 20px;
+    text-align: center;
+    
+}
+
+.wrapper-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+    'box01 box02'
+    'box03 box04';
+    gap: 30px 15px;
+    
+}
+
+.wrapper-stats div{
+    font-size: 12px;
+    background-color: var(--white);
+    border-width: 1px;
+    border-radius: 5px;
+    height: 60px;
+    box-shadow: 0 5px 8px rgba(0, 0, 0, 0.2);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;    
+}
+
+#boxy {
+    padding-bottom: 20px;
+}
+
+.bigP {
+    font-size: 60px;
+    font-weight: 700;
+}
+
+span {
+    color: var(--primary);
+}
+
+.coders, .managers {
+    margin-block: 80px;
+    padding-inline: 20px;
+    font-size: 12px;
+}
+
+.container {
+    margin-block: 4px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    gap: 15px;
+}
+
+.card {
+    padding: 15px;
+    background-color: var(--background);
+    border-radius: 5px;
+    border: 1px solid var(--text-light);
+    box-shadow: 0 5px 8px rgba(0, 0, 0, 0.2);
+
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.ok-img {
+    width: 20px;
+
+}
+
+.card div {
+    display: flex;
+    flex-direction: column;
+}
+
+.description {
+    margin-top: 6px;
+    color: var(--text-light);
+}
+
+.team-img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    /* There is some kind of zoom applied on the picture. But I dont know how to implement it.
+    If I use the scale property, the img grows beyond the width/ height specified above.*/
+    margin-inline: auto;
+    border-radius: 40px;
+    display: block;
+}
+
+.wrapper-team {
+    margin-block-end: 80px;
+    padding-inline: 20px;
+    font-size: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+#logo-img-show {
+    height: 50px;
+    width: auto;
+}
+
+.testimonials {
+    text-align: center;
+}
+
+.testimonals-headline{
+    font-size: 30px; 
+}
+
+.wrapper-testimonials {
+    width: 280px;
+    margin: 20px auto;
+    padding: 30px;
+    background-color: var(--white);
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.stars {
+    font-size: 22px;
+}
+
+.quote {
+    margin-block-start: 25px;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 130%;
+}
+
+.testi-img {
+    margin-block-start: 25px;
+    width: 50px;
+    border-radius: 50%;
+    filter:grayscale(100%) ;
+}
+
+.quoter-name {
+    margin-block-start: 15px;
+    font-size: 14px;
+}
+
+.quoter-profession {
+    font-size: 12px;
+    margin-block-start: 5px;
+}
+
+.wrapper-contact {
+    margin-inline: auto;
+    color: var(--white);
+    font-size: 12px;
+    background-color: var(--body-main);
+    padding: 40px 40px 0 40px;
+    border-radius: 50px 0 0 0;
+}
+
+form { 
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+label {
+    margin-block: 10px 3px;
+    display: block;
+}
+
+input, textarea {
+    width: 100%;
+    height: 35px;
+    padding: 0 0 0 8px;
+    border-radius: 4px;
+    border: none;
+}
+
+textarea {
+    margin-bottom: 4px; 
+    height: 80px;
+    padding-top: 8px;
+}
+
+::placeholder {
+    color: var(--text-light);
+    opacity: 0.5;
+}
+
+footer {
+    background-color: #23155B;
+}
+
+footer p{
+    width: 50%;
+    margin-inline: auto;
+    padding-block: 8px;
+    color: var(--white);
+    font-size: 12px;
+    text-align: center;
+}
+
+/* =========FROM HERE ON SIGN-UP PAGE========= */
+
+.signUP, .signIN {
+    height: auto;
+    font-size: 12px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    justify-items: center;
+    align-items: center;
+}
+
+.left {
+    height: 100vh;
+    width: 50vw;
+    /* After much trial and error I came to THIS solution.
+    But I dont know, why I do have to set  the width to 50vw to make the
+    div (left) stretch the whole first half of the screen. I thought it might
+    do it on it's own, since I separated the section with the grid into 2 columns?!?!*/
+    min-width: 340px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--body-main);
+}
+
+.right {    
+    background-color: var(--background);
+}
+
+.signUP-card {
+    width: 300px;
+    height: 300px;
+    background-color: var(--white);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    box-shadow: 0 5px 8px rgba(0, 0, 0, 0.2);
+}
+
+.signUP input, .signIN input {
+    width: 90%;
+    height: 35px;
+    padding: 0 0 0 8px;
+    border-radius: 5px;
+    border: none;
+    color: var(--white);
+    background-color: var(--body-main);
+}
+
+.signUP input::placeholder, .signIN input::placeholder {
+    color: var(--white);
+    font-size: 12px;
+    opacity: 0.6;
+}
+
+.signUP button, .signIN button {
+    width: calc(90% + 8px);
+    height: 35px;
+    background-color:dodgerblue;
+    border: none;
+}
+
+.lil-coder-img {
+    width: 60%;
+    min-width: 300px;
+    max-width: 440px;
+}
+
+@media only screen and (min-width: 768px){
+    nav {
+        flex-direction: row;
+    }
+    .wrapper-stats {
+        width: 60%;
+        margin-inline: auto;
+    }
+    .container {
+        margin-block: 25px;
+        
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+        gap: 15px;
+    }
+    #logo-img-show {
+        height: 80px;
+        width: auto;
+    }
+    .wrapper-team {
+        width: 40%;
+        height: 460px;
+        margin-block-end: 6px;
+        margin-inline: auto;
+        align-items: flex-start; 
+    }
+    .team-img {
+        width: 25%;
+        height: auto;
+        max-height: 460px;
+        border-radius: 0 40px 40px 0;
+        position: absolute;
+    }
+
+    input, textarea {
+        width: 50%;
+    }
+
+}
