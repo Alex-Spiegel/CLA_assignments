@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>CodeCLA - Sign In</title>
+    <link href="./output.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <section class="flex h-screen text-sm">
+      <!-- left div -->
+      <div class="flex items-center justify-center w-1/2 bg-purple-950">
+        <img
+          class="w-[60%] min-w-[300px] max-w-[440px]"
+          src="./assets/coding.png"
+          alt=""
+        />
+      </div>
+
+      <!-- right div -->
+      <div class="flex items-center justify-center w-1/2 bg-fuchsia-50">
+        <!-- the signIN card div-->
+        <div
+          class="flex flex-col justify-center items-center p-7 bg-white shadow-lg"
+        >
+          <!-- the upper elements -->
+          <div class="flex flex-col justify-center items-center gap-3">
+            <h3 class="text-xl text-purple-500">Join Coders Now!</h3>
+
+            <input
+              class="w-80 h-11 pl-2 rounded-md text-xs text-white bg-purple-950 placeholder-white placeholder-opacity-60"
+              type="email"
+              name="email"
+              placeholder="Email"
+            />
+            <input
+              class="w-80 h-11 pl-2 rounded-md text-xs text-white bg-purple-950 placeholder-white placeholder-opacity-60"
+              type="password"
+              name="password"
+              placeholder="Password"
+            />
+            <button
+              class="w-80 h-9 text-white rounded-md bg-blue-500 hover:text-gray-600"
+            >
+              Login
+            </button>
+          </div>
+          <!-- the lower part -->
+          <p class="text-sm">
+            New to CodeCLA?
+            <a class="text-purple-500 hover:underline" href="/signUp.html"
+              >Signup</a
+            >
+          </p>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
