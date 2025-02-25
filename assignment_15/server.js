@@ -9,7 +9,6 @@ const challengesRouter = require("./app/routes/challengesRoute");
 const submissionsRouter = require("./app/routes/submissionsRoute");
 const leaderboardRouter = require("./app/routes/leaderboardRoute");
 const statisticsRouter = require("./app/routes/statisticsRoute");
-const systemStatsRouter = require("./app/routes/systemStatsRoute");
 
 const app = express();
 
@@ -29,8 +28,6 @@ app.use("/submissions", submissionsRouter);
 app.use("/leaderboard", leaderboardRouter);
 // hier wird die statistics-Route initialisiert
 app.use("/statistics", statisticsRouter);
-// hier wird die systemStats-Route initialisiert
-app.use("/system", systemStatsRouter);
 
 app.use((err, req, res, next) => {
   res.status(500).json({ message: "Something has fone wrong!" });
