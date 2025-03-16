@@ -30,7 +30,8 @@ const loginManagerC = async (req, res) => {
     const token = await managersService.loginManagerS(email, password);
     res.status(200).json({ message: "Login successfull", token });
   } catch (error) {
-    res.status(401).json({ message: "Login failed", error: error.message });
+    console.error("Login error:", error.message);
+    return res.status(401).json({ message: error.message });
   }
 };
 module.exports = { registerManagerC, loginManagerC };

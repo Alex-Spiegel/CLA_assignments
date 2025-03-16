@@ -15,7 +15,6 @@ const registerSchema = Joi.object({
   avatar: Joi.string()
     .uri()
     .default("https://randomuser.me/api/portraits/lego/1.jpg"),
-  role: Joi.string().valid("coder", "manager").required(),
   is_verified: Joi.boolean().default(false),
   description: Joi.string().max(500).allow(null, ""),
   score: Joi.number().integer().min(0).default(0),
