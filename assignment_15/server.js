@@ -9,10 +9,18 @@ const challengesRouter = require("./app/routes/challengesRoute");
 const submissionsRouter = require("./app/routes/submissionsRoute");
 const leaderboardRouter = require("./app/routes/leaderboardRoute");
 const statisticsRouter = require("./app/routes/statisticsRoute");
+const cors = require("cors");
 
 const app = express();
 
 app.use(express.json()); // JSON-Parsing für Requests
+
+app.use(
+  cors({
+    origin: "http://localhost:8080", // Erlaubt Anfragen nur von hier, dem Next.js-Frontend
+    credentials: true, // true fürs Erlauben von Cookies und Auth-Headers
+  })
+);
 
 // hier wird die Coders-Route initialisiert
 app.use("/coders", codersRouter);

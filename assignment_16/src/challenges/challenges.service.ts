@@ -23,26 +23,35 @@ export class ChallengesService {
     return challenge;
   }
 
-  async createChallenge(createChallengeDto: CreateChallengeDto): Promise<Challenge> {
-    const newChallenge = new this.challengeModel(createChallengeDto);
+  async createChallenge(createChallengeDto: CreateChallengeDto, managerId: string): Promise<Challenge> {
+    const newChallenge = new this.challengeModel({
+        ...createChallengeDto,
+        manager: managerId, // Manager-ID wird aus dem Token übernommen
+    });
     return newChallenge.save();
-  }
+}
 
-  async updateChallenge(id: string, updateData: UpdateChallengeDto): Promise<Challenge> {
-    const updatedChallenge = await this.challengeModel
-      .findByIdAndUpdate(id, updateData, { new: true, runValidators: true })
-      .exec();
 
-    if (!updatedChallenge) {
-      throw new NotFoundException(`Challenge with ID ${id} npt found`);
-    }
-    return updatedChallenge;
+async updateChallenge(id: string, updateData: UpdateChallengeDto, userId: string): Promise<Challenge> {
+  const updatedChallenge = await this.challengeModel
+    .findOneAndUpdate(
+      { _id: id, manager: userId }, // Stelle sicher, dass der Manager der Ersteller ist!
+      updateData,
+      { new: true, runValidators: true }
+    )
+    .exec();
+
+  if (!updatedChallenge) {
+    throw new NotFoundException(`Challenge not found or unauthorized`);
   }
+  return updatedChallenge;
+}
+
 
   async deleteChallenge(id: string): Promise<{ message: string }> {
     const deletedChallenge = await this.challengeModel.findByIdAndDelete(id).exec();
     if (!deletedChallenge) {
-      throw new NotFoundException(`Challenge with ID ${id} npt found`);
+      throw new NotFoundException(`Challenge with ID ${id} not found`);
     }
     return { message: `Challenge with ID ${id} deleted` };
   }

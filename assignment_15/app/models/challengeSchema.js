@@ -1,3 +1,4 @@
+const { required } = require("joi");
 const mongoose = require("mongoose");
 const { Schema, model } = mongoose;
 
@@ -24,34 +25,36 @@ const challengeSchema = new Schema(
       enum: ["Easy", "Moderate", "Hard"],
       required: true,
     },
+    manager: {
+      type: Schema.Types.ObjectId,
+      ref: "Manager", // Verweis auf den erstellenden Manager
+      required: true,
+    },
+
+    //Code-Block
     code: {
       function_name: { type: String, required: true },
       code_text: {
-        // made this into an object - no more array - since it can only be either py OR js
         language: { type: String, enum: ["py", "js"], required: true },
         text: { type: String, required: true },
       },
 
       inputs: [
         {
-          name: { type: String },
-          type: { type: String, enum: ["number", "string"] },
-          value: { type: mongoose.Schema.Types.Mixed },
+          name: { type: String, required: true }, // default n, MISSING
+          type: { type: String, enum: ["number", "string"], required: true }, // MISSING
         },
       ],
     },
-    manager: {
-      type: Schema.Types.ObjectId,
-      ref: "Manager", // Verweis auf den erstellenden Manager
-    },
+
+    // Test Cases
     tests: [
       {
-        weight: { type: Number, min: 0, max: 1 },
+        weight: { type: Number, min: 0, max: 1, required: true },
         inputs: [
           {
-            name: { type: String },
-            type: { type: String, enum: ["number", "string"] },
-            value: { type: mongoose.Schema.Types.Mixed },
+            name: { type: String, required: true }, // MISSING
+            value: { type: mongoose.Schema.Types.Mixed, required: true }, // MISSING
           },
         ],
         output: { type: mongoose.Schema.Types.Mixed, required: true },

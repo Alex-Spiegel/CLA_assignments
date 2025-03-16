@@ -10,7 +10,7 @@ import { JwtModule } from "@nestjs/jwt";
   imports: [
     JwtModule.register({
       secret: process.env.JWT_SECRET || "default-secret",
-      signOptions: { expiresIn: "2h" }, // stellt sicher, dass dieser Algorithmus beim signieren verwendet wird
+      signOptions: { expiresIn: "2h" },
     }),
     MongooseModule.forFeature([
       { name: Challenge.name, schema:ChallengeSchema }, // ChallengeSchema wird hier registriert
