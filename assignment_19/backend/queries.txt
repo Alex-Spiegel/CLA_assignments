@@ -1,0 +1,55 @@
+QUERIES FOR THE DIFFERENT TASKS
+--> start the Server (npm run dev)
+--> insert these queries into the GraphQL-Server (http://localhost:5000/graphql)
+
+//====================================================
+// GET /challenges - get all CHALLENGES
+//====================================================
+{
+  getAllChallenges {
+    _id
+    title
+    category
+    level
+  }
+}
+
+
+//====================================================
+// GET /challenges - get all CHALLENGES
+//====================================================
+{
+  getAllChallenges(token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YjQ3OTNlZGVkZGNmZjc4OTU3Mzc5ZSIsImVtYWlsIjoiZXhhbXBsZTAxQGdteC5kZSIsInJvbGUiOiJjb2RlciIsImlhdCI6MTc0MjMwMTEyMiwiZXhwIjoxNzQyMzA4MzIyfQ.n9jEjp49FWWL3Oob7mQtqBzuj66L4IOdu0OMn3oyrbw") {
+    _id
+    title
+    category
+    level
+  }
+}
+
+
+//====================================================
+// GET /challenges/id - get CHALLENGES by ID
+//====================================================
+{
+  getChallengeById(id: "67b47644deddcff78957376c") {
+    _id
+    title
+    category
+    level
+  }
+}
+
+
+//====================================================
+// GET /challenges/categories  - get all existing categories of CHALLENGES
+//====================================================
+{
+  getChallengesByCategory(category: "Math") {
+    _id
+    title
+    category
+    level
+  }
+}
+
