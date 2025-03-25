@@ -1,0 +1,50 @@
+### IMAGE "BUILD" BEFEHL
+$docker build -t codecla-express:v1 .
+--> -t für tags/ Benennung, ohne = docker macht selbst namen
+--> "codecla-express" = name
+--> "v1" = tag
+--> . = ebenda
+
+### CONTAINER "RUN" BEFEHL
+$docker run -d -p 5000:5000 --name express-app codecla-express:v1
+--> -d = detached mode (läuft im Hintergrund)
+--> -p 5000:5000 = Port-Mapping: außen:5000 → innen:5000
+--> --name express-app	Gibt dem Container einen Namen
+--> codecla-express:v1	Das Image, das du starten willst
+
+### CONTAIONER STOPPEN BEFEHL
+$docker stop express-app
+
+### CONTAINER ENTFERNEN
+$docker rm express-app
+
+### CONTAINER "RUN" BEFEHL FÜR MONGO (kein build nötig - kommt direkt ausm Docker hub)
+$docker run -d --name mongo -p 27017:27017 mongo
+--> -d = s.o. detached mode 
+--> --name mongo = Container heißt jetzt mongo
+--> -p 27017:27017 = lokale verbindung --> Container Port
+--> mongo = verwendet das offizielle MongoDB-Image
+
+
+$docker run -d \
+  --name express-local \
+  -p 5001:5000 \
+  -e MONGO_URI="mongodb://host.docker.internal:27017/express-test" \
+  codecla-express:v1
+--> docker run -d = startet container im Hintergrund
+--> --name express-local = gibt dem container einen Namen (wichtig auch fürs spätere ansprechen $docker stop express-local)
+--> -p 5001:5000  = Portmapping, links (5001) = Port außen auf meinem Rechner, rechts (5000) = Port innen im Container
+--> -e MONGO_URI="mongodb://host.docker.internal:27017/express-test" = setzt die Umgebungsvariable (-e = environment variable) für lokale MongoDB
+--> codecla-express:v1 = Name des Docker images das ausgeführt wird
+
+$docker logs express-local
+--> für logs
+
+### damit gelangt man in ein Terminal des docker containers
+$docker run -it --rm codecla-express:v1 sh
+oder
+$winpty docker run -it --rm codecla-express:v1 sh
+
+
+
+
